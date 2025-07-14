@@ -12,18 +12,42 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
   position: relative;
+  padding: 1rem 2rem;
   background-color: #111;
 }
 
-/* Navigation */
+/* Logo container: fixed size square on far left */
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background-color: #111;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid #111;
+}
+
+/* Spacer matches logo width for symmetry */
+.header-spacer {
+  width: 70px; /* Same as .logo-link width */
+  height: 70px;
+  margin-left: 2rem; /* Match .logo-link's margin-right for perfect symmetry */
+  flex-shrink: 0;
+}
+
+/* Navigation: centered with auto margins */
 .nav {
   display: flex;
   gap: 4rem;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  margin: 0 auto; /* Center nav in header */
 }
 
 /* Dropdown container */
@@ -46,7 +70,7 @@ header {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 2.5rem;
+  top: 100%; /* Directly below the button */
   left: 0;
   background-color: #222;
   border: 1px solid #333;
@@ -55,9 +79,9 @@ header {
   z-index: 1000;
 }
 
-/* Show dropdown menu on hover */
+/* Show dropdown menu on hover or focus-within */
 .dropdown:hover .dropdown-content,
-.dropdown-content:hover {
+.dropdown:focus-within .dropdown-content {
   display: flex;
 }
 
@@ -73,30 +97,11 @@ header {
   text-decoration: underline;
 }
 
-
-
-/* Logo container: fixed size square on far left */
-.logo-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;   /* adjust size */
-  height: 70px;
-  background-color: #111; /* black background */
-  border-radius: 4px; /* optional rounded corners */
-  overflow: hidden;
-  margin-right: 2rem;
-  cursor: pointer;
-  flex-shrink: 0;
-  border: 1px solid #111;
-  
-}
-
 /* Logo image */
 .logo-link img {
-  width: 75px;    /* size of the stick figure */
+  width: 75px;
   height: 75px;
-  filter: invert(1) brightness(20) contrast(1.0);   /* invert colors: white stick figure on black bg */
+  filter: invert(1) brightness(20) contrast(1.0);
   transition: filter 0.3s ease;
   display: block;
 }
