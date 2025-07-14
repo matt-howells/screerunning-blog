@@ -1,0 +1,107 @@
+/* Reset and base */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+}
+
+/* Header container */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: relative;
+  background-color: #111;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown buttons */
+.dropdown button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.2rem 0.5rem;
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  background-color: #222;
+  border: 1px solid #333;
+  padding: 1rem;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: flex;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: #eee;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Logo container: fixed size square on far left */
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;   /* adjust size */
+  height: 70px;
+  background-color: #111; /* black background */
+  border-radius: 4px; /* optional rounded corners */
+  overflow: hidden;
+  margin-right: 2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid #111;
+  
+}
+
+/* Logo image */
+.logo-link img {
+  width: 75px;    /* size of the stick figure */
+  height: 75px;
+  filter: invert(1) brightness(20) contrast(1.0);   /* invert colors: white stick figure on black bg */
+  transition: filter 0.3s ease;
+  display: block;
+}
+
+/* On hover: remove inversion, show original black stick figure */
+.logo-link:hover img {
+  filter: invert(0);
+}
