@@ -1,112 +1,69 @@
 /* Reset and base */
 html, body {
-  margin: 0;
-  padding: 0;
-  background-color: #111;
-  color: #fff;
+  margin: 0; padding: 0;
+  width: 100%; height: 100%;
+  background-color: #ffffff;
+  overflow: visible;
   font-family: 'Space Mono', monospace;
 }
 
-/* Header container */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 1rem 2rem;
-  background-color: #111;
-}
+body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px; /* Enable 3D perspective */
+      overflow: visible;
+    }
 
-/* Logo container: fixed size square on far left */
-.logo-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 70px;
-  background-color: #111;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-right: 2rem;
-  cursor: pointer;
-  flex-shrink: 0;
-  border: 1px solid #111;
-}
+    .logo {
+      position: relative;
+      overflow: visible;
+      /* Center the logo container */
+      transform-style: preserve-3d;
+    }
 
-/* Spacer matches logo width for symmetry */
-.header-spacer {
-  width: 70px; /* Same as .logo-link width */
-  height: 70px;
-  margin-left: 2rem; /* Match .logo-link's margin-right for perfect symmetry */
-  flex-shrink: 0;
-}
+    .logo svg {
+      width: 500px;
+      height: auto;
+      overflow: visible;
+      transform-style: preserve-3d;
+    }
 
-/* Navigation: centered with auto margins */
-.nav {
-  display: flex;
-  gap: 4rem;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto; /* Center nav in header */
-}
+    .logo svg path {
+      transition: transform 2.5s ease-in-out;
+      transform-origin: center;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
 
-/* Dropdown container */
-.dropdown {
-  position: relative;
-}
-
-/* Dropdown buttons */
-.dropdown button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 0.2rem 0.5rem;
-}
-
-/* Dropdown menu (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%; /* Directly below the button */
-  left: 0;
-  background-color: #222;
-  border: 1px solid #333;
-  padding: 1rem;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-/* Show dropdown menu on hover or focus-within */
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-  display: flex;
-}
-
-/* Dropdown links */
-.dropdown-content a {
-  color: #eee;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-}
-
-/* Hover effect for dropdown links */
-.dropdown-content a:hover {
-  text-decoration: underline;
-}
-
-/* Logo image */
-.logo-link img {
-  width: 75px;
-  height: 75px;
-  filter: invert(1) brightness(20) contrast(1.0);
-  transition: filter 0.3s ease;
-  display: block;
-}
-
-/* On hover: remove inversion, show original black stick figure */
-.logo-link:hover img {
-  filter: invert(0);
-}
+   
+    .logo:hover svg path:nth-child(1) {
+      transform: translateX(-50px) translateY(-30px) translateZ(80px) rotateX(20deg) rotateY(-15deg) scale(1.2);
+    }
+    .logo:hover svg path:nth-child(2) {
+      transform: translateX(40px) translateY(-40px) translateZ(100px) rotateX(-10deg) rotateY(25deg) scale(1.3);
+    }
+    .logo:hover svg path:nth-child(3) {
+      transform: translateX(-20px) translateY(60px) translateZ(60px) rotateX(15deg) rotateY(-20deg) scale(1.1);
+    }
+    .logo:hover svg path:nth-child(4) {
+      transform: translateX(30px) translateY(45px) translateZ(110px) rotateX(-25deg) rotateY(15deg) scale(1.3);
+    }
+    .logo:hover svg path:nth-child(5) {
+      transform: translateX(-60px) translateY(15px) translateZ(90px) rotateX(10deg) rotateY(-30deg) scale(1.4);
+    }
+    .logo:hover svg path:nth-child(6) {
+      transform: translateX(35px) translateY(-10px) translateZ(70px) rotateX(-15deg) rotateY(10deg) scale(1.2);
+    }
+    .logo:hover svg path:nth-child(7) {
+      transform: translateX(-25px) translateY(25px) translateZ(65px) rotateX(20deg) rotateY(-18deg) scale(1.1);
+    }
+    .logo:hover svg path:nth-child(8) {
+      transform: translateX(45px) translateY(10px) translateZ(85px) rotateX(-20deg) rotateY(22deg) scale(1.3);
+    }
+    .logo:hover svg path:nth-child(9) {
+      transform: translateX(-35px) translateY(-20px) translateZ(75px) rotateX(12deg) rotateY(-12deg) scale(1.2);
+    }
+    .logo:hover svg path:nth-child(10) {
+      transform: translateX(10px) translateY(50px) translateZ(80px) rotateX(-8deg) rotateY(8deg) scale(1.2);
+    }
