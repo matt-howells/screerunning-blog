@@ -10,6 +10,11 @@
 
 <body>
 
+  <div class="folder">
+  <img src="images/folder.svg" alt="Folder Icon" class="folder-icon">
+  <div class="folder-label" data-text="poetics">poetics</div>  
+</div>
+
  
 <div class="logo">
     
@@ -26,6 +31,71 @@
     </svg>
   
 </div>
+
+<script>
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%&";
+
+document.querySelectorAll(".folder-label").forEach(label => {
+  const originalText = label.textContent;
+  label.dataset.text = originalText;
+
+  const scramble = () => {
+    label.innerText = originalText
+      .split("")
+      .map(() => letters[Math.floor(Math.random() * letters.length)])
+      .join("");
+  };
+
+  const decode = () => {
+    let iteration = 0;
+    clearInterval(label._interval);
+
+    label._interval = setInterval(() => {
+      label.innerText = originalText
+        .split("")
+        .map((char, i) => {
+          if (i < iteration) return originalText[i];
+          return letters[Math.floor(Math.random() * letters.length)];
+        })
+        .join("");
+
+      iteration += 1 / 2;
+
+      if (iteration >= originalText.length) {
+        clearInterval(label._interval);
+        label.innerText = originalText;
+      }
+    }, 30);
+  };
+
+  const reverseScramble = () => {
+    let iteration = originalText.length;
+    clearInterval(label._interval);
+
+    label._interval = setInterval(() => {
+      label.innerText = originalText
+        .split("")
+        .map((char, i) => {
+          if (i < iteration) return originalText[i];
+          return letters[Math.floor(Math.random() * letters.length)];
+        })
+        .join("");
+
+      iteration -= 1 / 2;
+
+      if (iteration <= 0) {
+        clearInterval(label._interval);
+        scramble(); // finish fully scrambled
+      }
+    }, 30);
+  };
+
+  scramble(); // scramble on load
+  label.addEventListener("mouseenter", decode);
+  label.addEventListener("mouseleave", reverseScramble);
+});
+
+</script>
 
 </body>
 </html>
